@@ -3,7 +3,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputController : TopDonwController
+/*동작순서 : 
+    1.PlayerInputController스크립트 OnMove에서 InputActions에서 키 값을 받는다.
+    2.OnMove에서 TopDownController스크립트에 있는 CallMoveEvent를 호출한다.
+    3.CallMoveEvent에서 Invoke로 InputActions의 OnMoveMentEvent를 호출한다.
+    4.InputSystem에서 OnMoveMentEvent로 받은 값을 
+        PlayerInput컴포넌트가 SendMessage를 통해 오브젝트의 모든 컴포넌트에 뿌려준다.
+    5.SendMessage가 뿌려준 값을 TopDownMoveMent가 받아서 저장한다.
+    6.TopDownMoveMent에 있는 FixedUpdate에서 움직임이 실행된다.
+*/
+public class PlayerInputController : TopDownController
 {
     private Camera _camera;
 
@@ -12,7 +21,6 @@ public class PlayerInputController : TopDonwController
     }
     //여기서 방향값을 정하는 전 처리 작업을 하고
     public void OnMove(InputValue value){ //InputValue InputActions에서 받은 키의 값
-        print("OnMove");
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput); //호출
         //실제 움직이는 처리는 여기서 하는게 아니라 PlayerMovement에서 함
