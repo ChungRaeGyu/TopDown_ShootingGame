@@ -16,7 +16,8 @@ public class PlayerInputController : TopDownController
 {
     private Camera _camera;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake(); //이게 있어야 TopDownController의 Awake()도 같이 실행된다.
         _camera = Camera.main;
     }
     //여기서 방향값을 정하는 전 처리 작업을 하고

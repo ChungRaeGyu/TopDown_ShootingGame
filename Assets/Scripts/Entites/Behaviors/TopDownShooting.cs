@@ -6,6 +6,7 @@ public class TopDownShooting : MonoBehaviour{
 
     public GameObject testPrefab;
 
+    public GameObject WeaponPivot;
     [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 aimDirection = Vector2.right;
     private void Awake(){
@@ -29,7 +30,7 @@ public class TopDownShooting : MonoBehaviour{
     private void CreateProjectile()
     {
         
-        Instantiate(testPrefab, projectileSpawnPosition.position, Quaternion.identity);
+        Instantiate(testPrefab, projectileSpawnPosition.position, WeaponPivot.transform.rotation);
     }
 }
 

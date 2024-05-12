@@ -3548,6 +3548,7 @@ GameObject:
   - component: {fileID: 1358655862}
   - component: {fileID: 1358655863}
   - component: {fileID: 1358655864}
+  - component: {fileID: 1358655865}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3725,7 +3726,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testPrefab: {fileID: 3249420954476050538, guid: 44bcf178a0326ad449d3f809397aaac3, type: 3}
+  WeaponPivot: {fileID: 1783065889}
   projectileSpawnPosition: {fileID: 1537840685}
+--- !u!114 &1358655865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358655856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6fbe5d6698864489d09f45fcf9cef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStat:
+    statsChangeType: 2
+    maxHealth: 15
+    speed: 5
+    attackSO: {fileID: 11400000, guid: fdbd1ab59899fbb42966650f1db72beb, type: 2}
+  statModifiers: []
 --- !u!1 &1537840684
 GameObject:
   m_ObjectHideFlags: 0

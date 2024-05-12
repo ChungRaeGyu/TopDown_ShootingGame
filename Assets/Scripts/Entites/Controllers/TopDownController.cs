@@ -15,6 +15,11 @@ public class TopDownController : MonoBehaviour
     private float timeSinceLastAttack = float.MaxValue;
     
 
+    protected CharacterStatsHandler characterStatsHandler;
+
+    protected virtual void Awake(){
+        characterStatsHandler = GetComponent<CharacterStatsHandler>();
+    }
     //같은 컴포넌트에 있는곳에 다 뿌림
     private void Update(){
         HandleAttackDelay();
@@ -22,10 +27,11 @@ public class TopDownController : MonoBehaviour
 
     private void HandleAttackDelay()
     {
-        //TODO :: Magic Number 수정
-        if(timeSinceLastAttack<0.2f){
+        if(timeSinceLastAttack< characterStatsHandler.CurrentStat.attackSO.delay)
+        {
             timeSinceLastAttack += Time.deltaTime;
-        }else if(IsAttacking && timeSinceLastAttack>=0.2f){
+        }else if(IsAttacking && timeSinceLastAttack>= characterStatsHandler.CurrentStat.attackSO.delay)
+        {
             timeSinceLastAttack =0f;
             CallAttackEvent();
         }
