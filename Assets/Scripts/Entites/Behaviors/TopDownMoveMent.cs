@@ -30,9 +30,22 @@ public class TopDownMoveMent :MonoBehaviour{
         //여기는 물리 업데이트 관련
         //rigidbody는 물리
         ApplyMovement(movementDirection);
+
+        if(knockbackDuration > 0f){
+            knockbackDuration -=Time.fixedDeltaTime; 
+        }
+    }
+
+    public void ApplyKnockback(Transform Other, float power, float duration){
+        knockbackDuration = duration;
+        knockback = -(Other.position - transform.position).normalized * power;
     }
     private void ApplyMovement(Vector2 direction){
         direction = direction * characterStatsHandler.CurrentStat.speed;
+
+        if(knockbackDuration >0.0f){
+            direction += knockback;
+        }
         movementRigidbody.velocity = direction;
     }
 }

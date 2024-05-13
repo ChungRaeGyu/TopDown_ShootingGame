@@ -68,8 +68,23 @@ internal class ProjectileController : MonoBehaviour
         }
         else if(IsLayerMatched(attackData.target.value, collision.gameObject.layer)){
             print(collision.name);
-            //TODO : 데미지를 준다.
+            HealthSystem healthSystem = collision.GetComponent<HealthSystem>();
+            if(healthSystem!=null){
+                bool isAttackApplied = healthSystem.ChangeHealth(-attackData.power);
+
+                if(isAttackApplied && attackData.isOneKnockBack){
+                    ApplyKnockback(collision);
+                }
+            }
             DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);
+        }
+    }
+
+    private void ApplyKnockback(Collider2D collision)
+    {
+        TopDownMoveMent movement= collision.GetComponent<TopDownMoveMent>();
+        if(movement!=null){
+            movement.ApplyKnockback(transform,attackData.KnockbackPower,attackData.knockbackTime);
         }
     }
 
