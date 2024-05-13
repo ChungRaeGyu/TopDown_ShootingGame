@@ -38,6 +38,5 @@ public class PlayerInputController : TopDownController
 
     public void OnFire(InputValue value){
         IsAttacking = value.isPressed;
-        print(IsAttacking);
     }
 }
