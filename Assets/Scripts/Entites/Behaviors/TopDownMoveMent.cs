@@ -17,7 +17,7 @@ public class TopDownMoveMent :MonoBehaviour{
         characterStatsHandler = GetComponent<CharacterStatsHandler>();
     }
     private void Start(){
-        controller.OnMoveEnvent += Move;
+        controller.OnMoveEvent += Move;
     }
     private void Move(Vector2 direction)
     {

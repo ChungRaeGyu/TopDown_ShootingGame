@@ -3597,6 +3597,7 @@ GameObject:
   - component: {fileID: 1358655863}
   - component: {fileID: 1358655864}
   - component: {fileID: 1358655865}
+  - component: {fileID: 1358655866}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -3794,6 +3795,18 @@ MonoBehaviour:
     speed: 5
     attackSO: {fileID: 11400000, guid: fdbd1ab59899fbb42966650f1db72beb, type: 2}
   statModifiers: []
+--- !u!114 &1358655866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358655856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57f4e6c6d3bf004c9ceec41f342454f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1537840684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3865,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1783065890}
@@ -3952,6 +3965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021621239}
   - component: {fileID: 2021621240}
+  - component: {fileID: 2021621241}
   m_Layer: 8
   m_Name: MainSprite
   m_TagString: Untagged
@@ -4027,6 +4041,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2021621241
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021621238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2235eb1338cd7e846acf2086b85d5a9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

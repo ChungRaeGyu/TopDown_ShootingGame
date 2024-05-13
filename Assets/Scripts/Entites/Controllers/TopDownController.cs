@@ -7,7 +7,7 @@ using UnityEngine;
 //몬스터와 플레이어가 같이 사용하는 인터페이스? 같은 느낌
 public class TopDownController : MonoBehaviour
 {
-    public event Action<Vector2> OnMoveEnvent; //Action은 무조건 void만 반환해야 함 아니면 Func를 사용
+    public event Action<Vector2> OnMoveEvent; //Action은 무조건 void만 반환해야 함 아니면 Func를 사용
     public event Action<Vector2> OnLookEvent;
     public event Action<AttackSO> OnAttackEvent;
 
@@ -40,7 +40,7 @@ public class TopDownController : MonoBehaviour
 
 
     public void CallMoveEvent(Vector2 direction){        
-        OnMoveEnvent?.Invoke(direction); // ?. null값 허용(없으면 말고 있으면 실행);
+        OnMoveEvent?.Invoke(direction); // ?. null값 허용(없으면 말고 있으면 실행);
     }
 
     public void CallLookEvent(Vector2 direction){
