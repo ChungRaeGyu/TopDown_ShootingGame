@@ -9,6 +9,8 @@ public class TopDownMoveMent :MonoBehaviour{
     private CharacterStatsHandler characterStatsHandler;
 
     private Vector2 movementDirection = Vector2.zero;
+    private Vector2 knockback = Vector2.zero;
+    private float knockbackDuration = 0f;
 
     private void Awake(){
         //
