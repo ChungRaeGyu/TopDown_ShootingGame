@@ -9,10 +9,15 @@ public class TopDownShooting : MonoBehaviour{
     public GameObject testPrefab;
 
     public GameObject WeaponPivot;
+
+    private ObjectPool pool;
     [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 aimDirection = Vector2.right;
+
+
     private void Awake(){
         controller = GetComponent<TopDownController>(); 
+        pool = GameObject.FindObjectOfType<ObjectPool>();
     }
     private void Start(){
         controller.OnAttackEvent += OnShoot;
@@ -43,11 +48,10 @@ public class TopDownShooting : MonoBehaviour{
 
     private void CreateProjectile(RangedAttackSO rangedAttackSO,float angle)
     {
-        GameObject obj = Instantiate(testPrefab);
+        GameObject obj = pool.SpawnFromPool(rangedAttackSO.bulletNameTag);
         obj.transform.position = projectileSpawnPosition.position;
         ProjectileController attackController = obj.GetComponent<ProjectileController>();
         attackController.InitializeAttack(RotateVector2(aimDirection,angle),rangedAttackSO);
-        Instantiate(testPrefab, projectileSpawnPosition.position, WeaponPivot.transform.rotation);
     }
     private static Vector2 RotateVector2(Vector2 v, float angle){
         return Quaternion.Euler(0f,0f,angle)* v;

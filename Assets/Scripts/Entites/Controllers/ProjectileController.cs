@@ -64,6 +64,7 @@ internal class ProjectileController : MonoBehaviour
         if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer)){
             Vector2 destoryPosition = collision.ClosestPoint(transform.position)-direction*0.2f;
             DestroyProjectile(destoryPosition, fxOnDestory);
+            Debug.Log("실행");
         }
         else if(IsLayerMatched(attackData.target.value, collision.gameObject.layer)){
             print(collision.name);
